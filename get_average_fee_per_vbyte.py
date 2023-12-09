@@ -14,7 +14,7 @@ import math
 
 
 def writeInFile(text):
-    datei = open('C:\\Users\\oscar\\OneDrive\\Desktop\\Jugend Forscht BTC\\repository\\average_fee_per_vbyte.csv','a',newline='')
+    datei = open('C:\\Users\\oscar\\Documents\\GitHub\\Jugend-Forscht-Fee-Estimator\\average_fee_per_vbyte.csv','a',newline='')
     #datei.writelines(text)
     writer = csv.writer(datei, delimiter=';')
     for row in text:
@@ -23,18 +23,18 @@ def writeInFile(text):
     
 
 def setLatestBlock(text):
-    datei = open('C:\\Users\\oscar\\OneDrive\\Desktop\\Jugend Forscht BTC\\repository\\latestblock.txt','w')
+    datei = open('C:\\Users\\oscar\\Documents\\GitHub\\Jugend-Forscht-Fee-Estimator\\latestblock.txt','w')
     datei.writelines(text)
     datei.close()
 
 def getLatestBlock():
-    datei = open('C:\\Users\\oscar\\OneDrive\\Desktop\\Jugend Forscht BTC\\repository\\latestblock.txt','r')
+    datei = open('C:\\Users\\oscar\\Documents\GitHub\\Jugend-Forscht-Fee-Estimator\\latestblock.txt','r')
     latest_block = datei.readline()
     datei.close()
     return latest_block
     
 def clear():
-    datei = open('C:\\Users\\oscar\\OneDrive\\Desktop\\Jugend Forscht BTC\\repository\\average_fee_per_vbyte.csv','w')
+    datei = open('C:\\Users\\oscar\\Documents\\GitHub\\Jugend-Forscht-Fee-Estimator\\average_fee_per_vbyte.csv','w')
     datei.write("")
     datei.close()
 
