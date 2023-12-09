@@ -13,11 +13,6 @@ import math
 
 
 
-
-
-
-
-
 def writeInFile(text):
     datei = open('C:\\Users\\oscar\\OneDrive\\Desktop\\Jugend Forscht BTC\\repository\\average_fee_per_vbyte.csv','a',newline='')
     #datei.writelines(text)
