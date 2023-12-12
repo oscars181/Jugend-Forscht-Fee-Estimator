@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt 
 import csv 
 import pandas as pd
+from datetime import datetime
+
 
 #x = [] 
 #y = [] 
@@ -9,7 +11,8 @@ with open('C:\\Users\\oscar\\Documents\\GitHub\\Jugend-Forscht-Fee-Estimator\\av
     df = pd.read_csv(csvfile,delimiter=';')
     #pd.options.display.max_rows = 25
     print(df) 
-    df.plot(kind='scatter', x='block_height', y='fee_per_vbyte')
+    df['timestamp'] = pd.to_datetime(df['timestamp'],unit='s')
+    df.plot(kind='scatter', x='timestamp', y='fee_per_vbyte')
     print(df.info)
     #plt.xlim(109500,110500)
     plt.show()

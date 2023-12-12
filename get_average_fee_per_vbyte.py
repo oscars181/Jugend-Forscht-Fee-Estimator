@@ -13,12 +13,18 @@ import math
 
 
 
-def writeInFile(text):
+def writeInFile2(text):
     datei = open('C:\\Users\\oscar\\Documents\\GitHub\\Jugend-Forscht-Fee-Estimator\\average_fee_per_vbyte.csv','a',newline='')
     #datei.writelines(text)
-    writer = csv.writer(datei, delimiter=';')
-    writer.writerow(text)
+    writer = csv.writer(datei, delimiter=';') #liest wahrscheinlich gesamte datei ein... nur über append möglich?
+    for row in text:
+        writer.writerow(row)
     datei.close()
+
+def writeInFile(text):
+    datei = open('C:\\Users\\oscar\\Documents\\GitHub\\Jugend-Forscht-Fee-Estimator\\average_fee_per_vbyte.csv','a',newline='')
+    datei.writelines(str(text))
+    datei.close
     
 
 def setLatestBlock(text):
@@ -138,7 +144,8 @@ def getFeePVByte(block_height):
             setLatestBlock(block_height)
             #writeInFile('####\n')
             text = [[str(block_time),str(block_height).rstrip(),str(SatPByte)]]
-            writeInFile(text)
+            text2 = str(block_time) + ';' + str(block_height) + ';' + str(SatPByte) + '\n'
+            writeInFile(text2)
             #writeInFile(block_height)
             #writeInFile(",")
             #writeInFile(str(SatPByte))
