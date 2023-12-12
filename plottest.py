@@ -9,7 +9,7 @@ with open('C:\\Users\\oscar\\Documents\\GitHub\\Jugend-Forscht-Fee-Estimator\\av
     df = pd.read_csv(csvfile,delimiter=';')
     #pd.options.display.max_rows = 25
     print(df) 
-    df.plot(kind= 'scatter', x='block_height', y='fee_per_vbyte', s=1)
+    df.plot(kind='scatter', x='block_height', y='fee_per_vbyte')
     print(df.info)
     #plt.xlim(109500,110500)
     plt.show()
