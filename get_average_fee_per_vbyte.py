@@ -56,7 +56,7 @@ def cliNode(command):
 
 def getBlockJSon(block_hash):
     
-    block_data = cliNode(['getblock', block_hash])
+    block_data = cliNode(['getblock', block_hash, '2'])
     block_data_json = json.loads(block_data)
     
     return block_data_json
@@ -110,23 +110,21 @@ def getFeePVByte(block_height):
 
         
             block_data_json = getBlockJSon(block_hash_d)
-            cbtx_hash = block_data_json["tx"][0]
+            
+            #cbtx_hash = block_data_json["tx"][0]
             block_weight = block_data_json["weight"] 
             block_time = block_data_json["time"]
             
 
-            raw_cbtx = cliNode(['getrawtransaction', cbtx_hash, 'true', block_hash_d])
-            raw_cbtx_decoded = raw_cbtx.decode("utf-8")
-            raw_cbtx_decoded_json = json.loads(raw_cbtx_decoded) # summe der outputs nehmen 
+            #raw_cbtx = cliNode(['getrawtransaction', cbtx_hash, 'true', block_hash_d])
+            #raw_cbtx_decoded = raw_cbtx.decode("utf-8")
+            #raw_cbtx_decoded_json = json.loads(raw_cbtx_decoded) # summe der outputs nehmen 
+            
             cb_vout = 0
             
         
-                
-            # cb_vout =  raw_cbtx_decoded_json['vout'][0]["value"] * 100000000
-            
-            for output in raw_cbtx_decoded_json['vout']:
-                
-                cb_vout = cb_vout + (output['value'])* 100000000
+            for output in block_data_json['tx'][0]['vout']:
+                cb_vout = cb_vout + (output['value'])* 100000000 
                 
             
             #print(cb_vout)
