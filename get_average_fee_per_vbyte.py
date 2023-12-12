@@ -17,8 +17,7 @@ def writeInFile(text):
     datei = open('C:\\Users\\oscar\\Documents\\GitHub\\Jugend-Forscht-Fee-Estimator\\average_fee_per_vbyte.csv','a',newline='')
     #datei.writelines(text)
     writer = csv.writer(datei, delimiter=';')
-    for row in text:
-        writer.writerow(row)
+    writer.writerow(text)
     datei.close()
     
 
@@ -28,7 +27,7 @@ def setLatestBlock(text):
     datei.close()
 
 def getLatestBlock():
-    datei = open('C:\\Users\\oscar\\Documents\GitHub\\Jugend-Forscht-Fee-Estimator\\latestblock.txt','r')
+    datei = open('C:\\Users\\oscar\\Documents\\GitHub\\Jugend-Forscht-Fee-Estimator\\latestblock.txt','r')
     latest_block = datei.readline()
     datei.close()
     return latest_block
@@ -65,8 +64,7 @@ def start():
     except:
         print('start nicht möglich \t definiere startpunkt')
     else:
-        while True:
-            getFeePVByte(start_height)
+        getFeePVByte(start_height)
     
         
 
@@ -90,13 +88,13 @@ def getFeePVByte(block_height):
         block_height = str(block_height)
         try:
             #print("trying")
-            cliNode(['getblockhash', block_height])
+            block_hash = cliNode(['getblockhash', block_height])
         except: 
             #print("fehler: aktuelle Höhe: " + block_height)
             time.sleep(5)
         else: 
             #print("start")
-            block_hash = cliNode(['getblockhash', block_height])
+            #block_hash = cliNode(['getblockhash', block_height])
             block_subsidy = checkHalving(block_height)
         
             
@@ -131,8 +129,8 @@ def getFeePVByte(block_height):
             #print(sum_fees/100000000)
             SatPByte = sum_fees / (block_weight / 4)
             
-            if SatPByte < 5 or SatPByte > 100:
-                print(str(block_height) + ' - ' + str(SatPByte))
+            #if SatPByte < 5 or SatPByte > 100:
+            #   print(str(block_height) + ' - ' + str(SatPByte))
             
             #print('Data for Block:', block_height)
             #print('Hash: ', block_hash_d)
@@ -145,6 +143,7 @@ def getFeePVByte(block_height):
             #writeInFile(",")
             #writeInFile(str(SatPByte))
             #writeInFile(',\n')
+            
             
             
 #getFeePVByte('8173017')
