@@ -1,0 +1,39 @@
+- sample für datensatz an mempoool daten 
+    - 700000 bis 720000 (blöck höhe)
+
+drei dimensionen: scatter plot, histo, time series analysis
+
+
+- vergleich als int casten
+-  historgram, sinnfrei -> daher kein durchschnitt
+    - cdf bilden (linear)
+    - wkeit verteilung 
+    - median bilden mit SP von median und cdf
+    - varianz
+    - SP von Graphen
+    - bitcoin epochen als ts
+    - 
+
+- was ist die ideale gebühr?
+    - einzelne blöce histo und cdf
+    - 
+
+auf conf time ebene:
+    - verteilung bilden
+    - 
+
+beide zusammen:
+    - scatter plot
+    - box plot 
+    - 
+
+idee: 
+
+- future work
+
+=> machine learning oder modell bauen
+
+- allgemein Zeitserie
+
+- 
+
