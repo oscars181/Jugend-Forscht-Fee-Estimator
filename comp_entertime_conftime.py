@@ -16,8 +16,8 @@ def checkEnterTime(tx_hash, dict):
 
 def checkTimeDiff(dict):
     i = 0
-    with open('/home/oscar/jufobtc/iter_start_650000.csv', 'r') as mempool_data:  
-        for line in mempool_data:
+    with open('/home/oscar/jufobtc/iter_start_650000.csv', 'r') as iter_data:  
+        for line in iter_data:
             if i == 10000: break #zum testen
             temp = line.rstrip().strip('[]').split(' ')
             tx_hash = temp[0]
