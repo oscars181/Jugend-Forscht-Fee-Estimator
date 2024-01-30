@@ -1,5 +1,7 @@
-# Dies ist das Repository für das Jugend-Forscht-Projekt: "What a FEEling: Statistische Analyse und Prognose der Gebühren im Bitcoin-Netzwerk". 
+# What a FEEling: Statistische Analyse und Prognose der Transaktoinsgebühren im Bitcoin-Netzwerk
 
+Dies ist das Repository für das Jugend-Forscht-Projekt: "What a FEEling: Statistische Analyse und Prognose der Gebühren im Bitcoin-Netzwerk". 
+<br>
 Teilnehmer: Oscar Stach, oscarstachmail@gmail.com <br>
 Betreuer:   Rene Pickhardt <br>
 <br>
