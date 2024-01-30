@@ -2,6 +2,7 @@
 
 Dies ist das Repository für das Jugend-Forscht-Projekt: "What a FEEling€: Statistische Analyse und Prognose der Gebühren im Bitcoin-Netzwerk". Mit diesem Projekt nehmen wir aktuell am Regionalwettbewerb Rhein-Main-West im Bereich Mathematik / Informatik teil.
 <br>
+
 Teilnehmer: Oscar Stach, oscarstachmail@gmail.com <br>
 Betreuer:   Rene Pickhardt <br>
 <br>
