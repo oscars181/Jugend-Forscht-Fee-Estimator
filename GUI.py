@@ -4,7 +4,7 @@ import hashlib
 import os
 import time
 
-limit = 100000
+limit = 1000000
 
 def take_input():
     message = input.get("1.0","end-1c")
@@ -25,17 +25,20 @@ def submit():
 
 def update_output(text):
     output.insert(END, text)
+    output.insert(END, "\n")
+    output.update()
     output.see("end")
 
 def delete():
     input.config(state="normal") 
     input.delete("1.0", END)
     output.delete("1.0", END)
+    
      
 def findNonce(message, diff):
     global limit
     init_message = message
-    output.insert(END, "searching Nonce for %s ... \n" %message)
+    output.insert(END, "searching Nonce for:\n %s ... \n\n" %message)
     time.sleep(1)
     root.update()
     
@@ -53,16 +56,18 @@ def findNonce(message, diff):
         hash = hashlib.sha256(temp_message.encode()).hexdigest()
         text = hash + "\n"
         update_output(text)
-        
+        #time.sleep(0.1)
         if hash.startswith(str(diff)):
             print("FOUND" , nonce, hash)
-            text = "\n\n GEFUNDEN!! \n \n"
+            text = "\n\n GEFUNDEN!! \n"
             update_output(text)
-            text = str("\n\n" + temp_message + " ---> " + hash)
+            update_output("mit 'nur' %s Versuchen " %nonce)
+            text = str("\n\n" + temp_message + " ---> \n" + hash)
             update_output(text)
-            
+            found = True
             break
-        
+    if not found:
+        update_output("\n\n Leider konnte die passende Nonce nicht bei aktuellem Limit von %s Versuchen gefunden werden" %limit)
     
     
 if __name__ == "__main__":
@@ -84,11 +89,13 @@ if __name__ == "__main__":
     input_diff = Entry(root)
     input_diff.pack(pady=5)
     
-    submit_button = Button(root, text="submit", command=submit)
+    submit_button = Button(root, text="start mining", command=submit)
     submit_button.pack(pady=5)
     
     clear_button = Button(root, text="clear", command=delete)
     clear_button.pack(pady=5)
+    
+    
     
     termf = Frame(root, height=400, width=500)
 
