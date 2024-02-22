@@ -8,6 +8,7 @@ args = sys.argv
 
 mode = sys.argv.get()
 '''
+adress = ""
 
 def get_average_fee(**kwargs):
     if "block_height" in kwargs: 
@@ -69,9 +70,9 @@ def cliNode(command):
         return answer     
       
 # copy comp of fee estimates
-subprocess.Popen(["scp bitcoin@49.13.75.108:/home/bitcoin/jugend_forscht/fee_estimator_comp.csv /home/oscar/jufobtc/data"], shell=True)
+subprocess.Popen(["%s :/home/bitcoin/jugend_forscht/fee_estimator_comp.csv /home/oscar/jufobtc/data"%adress], shell=True)
 # copy memtx 
-subprocess.Popen(["scp bitcoin@49.13.75.108:/home/bitcoin/jugend_forscht/mem_tx.csv /home/oscar/jufobtc/data"], shell=True)
+subprocess.Popen(["%s :/home/bitcoin/jugend_forscht/mem_tx.csv /home/oscar/jufobtc/data" %adress], shell=True)
 print('copied fee_comp and mem_tx')  
 
 # get last line of average fee data 
